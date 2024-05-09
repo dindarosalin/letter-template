@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>SURAT PENERIMAAN SURAT PANGADUAN PROPAM</title>
+        <link href="http://fonts.cdnfonts.com/css/arial" rel="stylesheet">
+        <style>
+            body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 13px;
+            line-height: 1.5;
+            }
+            .page_break { page-break-before: always; }
+        </style>
+    </head>
+    <body>
+        <div style="text-align: center">
+            <img src="{{ public_path().'/images/logo-surat.png' }}" style="width:110px; height:120px"/>
+        </div>
+        <div>
+            <table style="width: 100%">
+                <tr>
+                    <td>
+                        <p style="text-align:center; font-size: 15px; margin-bottom:0px; text-decoration: underline;">
+                            <b> SURAT PENERIMAAN SURAT PENGADUAN PROPAM </b>
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p style="margin: 0%; font-size: 15px; text-align: center">
+                            Nomor : {{ $spsp2_code ?? '...............' }}
+                        </p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div style="margin-top:4%">
+            <p style="text-align: center">
+                Yang Bertanda Tangan Dibawah Ini Saya:
+            </p>
+            <p style="text-align: center">
+                {{ Str::upper($user->name ?? '.............................') }}
+            </p>
+        </div>
+        <div style="margin-top:4%">
+            Pangkat/Nrp. {{ $user->occupation }}/{{ $user->nrp }} sebagai {{ $user->note }}, menerapkan dengan sebenarnya bahwa pada hari ini {{ $report->created_at->isoFormat('D MMMM Y') }}, Pukul 12.00 WIB, telah menerima surat dari seorang yang mengaku:
+        </div>
+        <table style="margin-top:4%">
+            <tr style="vertical-align: top" >
+                <td>
+                    Nama
+                </td>
+                <td>:</td>
+                <td>
+                    {{$report->user->name ?? '...............'}}
+                </td>
+            </tr>
+            <tr style="vertical-align: top" >
+                <td>
+                    Pekerjaan
+                </td>
+                <td>:</td>
+                <td>
+                    {{ $report->user->occupation ?? '...............' }}
+                </td>
+            </tr>
+            <tr style="vertical-align: top" >
+                <td>
+                    Kewarganegaraan
+                </td>
+                <td>:</td>
+                <td>
+                    {{ Str::title($report->user->country->name ?? '...............') }}
+                </td>
+            </tr>
+            <tr style="vertical-align: top" >
+                <td>
+                    Alamat
+                </td>
+                <td>:</td>
+                <td>
+                    {{ $report->user->address ?? '...............' }}
+                </td>
+            </tr>
+            <tr style="vertical-align: top" >
+                <td>
+                    No. Telp
+                </td>
+                <td>:</td>
+                <td>
+                    {{ $report->user->phone_number ?? '...............' }}
+                </td>
+            </tr>
+            <tr style="vertical-align: top" >
+                <td>
+                    Yang ditujukan
+                </td>
+                <td>:</td>
+                <td>
+                    Kadivpropam Polri
+                </td>
+            </tr>
+            <tr style="vertical-align: top" >
+                <td>
+                    Lampiran
+                </td>
+                <td>:</td>
+                <td>
+                    {{ $countEvidences + 1 ?? '...............' }} berkas terlampir
+                </td>
+            </tr>
+            <tr style="vertical-align: top" >
+                <td >
+                    Perihal
+                </td>
+                <td>:</td>
+                <td>
+                    {{ $report->summary ?? '...............' }}
+                </td>
+            </tr>
+        </table>
+        <div>Demikian Surat Penerimaan Surat Pengaduan Propam ini dibuat dengan sebenarnya untuk dapat dipergunakan seperlunya.</div>
+        <div style="margin-top:6%">
+            <table style="width: 100%">
+                <tr>
+                    <td>
+                        <b>Hotline:</b>
+                    </td>
+                    <td>
+                        <p style="margin-left:30%; margin-bottom:0%; text-align: center">
+                            Jakarta, {{ $report->created_at->isoFormat('D MMMM Y') }}
+                        </p>
+                        <p style="margin-left:30%; margin-bottom:0%; margin-top:0%; text-align: center">
+                            PENERIMA SURAT
+                        </p>
+                    </td>
+                </tr>
+                <tr >
+                    <td >
+                        <li style="margin-left:3%">
+                            021-7218615 Bagyanduan
+                        </li>
+                    </td>
+                </tr>
+                <tr>
+                    <td >
+                        <li style="margin-left:3%">
+                            081319178714 Propam Presisi
+                        </li>
+                    </td>
+                </tr>
+                <tr>
+                    <td >
+                        <li style="margin-left:3%">
+                            082113808527 Biro Paminal
+                        </li>
+                    </td>
+                </tr>
+                <tr>
+                    <td >
+                        <li style="margin-left:3%">
+                            081299911132 Biro Provos
+                        </li>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: text-top">
+                        <li style="margin-left:3%">
+                            081370705110 Biro Wabprof
+                        </li>
+                    </td>
+                    <td>
+                        <p style="margin-left:30%; margin-bottom:0%; text-align: center; text-decoration: underline">
+                            {{ Str::upper($user->name ?? '.............................') }}
+                        </p>
+                        <p style="margin-left:30%; margin-bottom:0%;margin-top:0%; text-align: center;">
+                            {{ $user->occupation }} NRP {{ $user->nrp }}
+                        </p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        @if ($report->user->id_card || $report->user->selfie)
+        <div class="page_break">
+            <div style="margin-top:4%">
+                <p style="text-align: center">
+                    LAMPIRAN FOTO KTP PELAPOR
+                </p>
+            </div>
+        </div>
+        @if ($report->user->id_card)
+            <div style="text-align: start">
+                <img src="{{ $report->user->ktp_image }}" style="max-width: 100%; width:auto; height:300px"/>
+            </div>
+        @endif
+        @if ($report->user->selfie_image)
+            <div style="text-align: start">
+                <img src="{{ $report->user->selfie_image }}" style="max-width: 100%; width:auto; height:300px"/>
+            </div>
+        @endif
+        @endif
+        @if ($evidences->count() > 0)
+            <div class="page_break">
+                <div style="margin-top:4%">
+                    <p style="text-align: center">
+                        LAMPIRAN
+                    </p>
+                </div>
+            </div>
+            @foreach ($evidences as $key => $item)
+                @if(strpos($item->file, 'evidences/') == 0)
+                    <p>{{$key + 1}}. https://{{$_SERVER['SERVER_NAME']}}/storage/{{ $item->file }} </p>
+                    @if(!strpos($item->file, '.pdf'))
+                    <div style="text-align: start">
+                        <img src="{{ public_path().'/storage/'.$item->file }}" style="max-width: 100%"/>
+                    </div>
+                    @endif
+                @else
+                    <p>{{$key + 1}}. {{ $item->file }} </p>
+                @endif
+            @endforeach
+        @endif
+    </body>
+</html>
